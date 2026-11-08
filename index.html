@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus Metodológico | IA Generativa (ChatGPT, Copilot, Gemini) en el Aprendizaje y el Trabajo</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Syne & Fira Code & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            cyber: {
+              950: '#060813',
+              900: '#0a0f24',
+              850: '#0e1533',
+              800: '#151d45',
+              700: '#1e295f',
+              cyan: '#00f5d4',
+              purple: '#9d4edd',
+              emerald: '#10b981',
+              amber: '#f59e0b',
+              pink: '#f72585'
+            }
+          },
+          fontFamily: {
+            heading: ['Syne', 'sans-serif'],
+            mono: ['Fira Code', 'monospace'],
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #060813;
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    .grid-bg {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+    .glow-cyan {
+      box-shadow: 0 0 25px -5px rgba(0, 245, 212, 0.25);
+    }
+    .glow-purple {
+      box-shadow: 0 0 25px -5px rgba(157, 78, 221, 0.3);
+    }
+    .glass-card {
+      background: rgba(14, 21, 51, 0.65);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card:hover {
+      border-color: rgba(0, 245, 212, 0.35);
+    }
+    .terminal-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .terminal-scrollbar::-webkit-scrollbar-track {
+      background: #0a0f24;
+    }
+    .terminal-scrollbar::-webkit-scrollbar-thumb {
+      background: #1e295f;
+      border-radius: 9999px;
+    }
+    .terminal-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #00f5d4;
+    }
+  </style>
+</head>
+<body class="grid-bg min-h-screen selection:bg-cyber-cyan selection:text-cyber-950 flex flex-col justify-between">
+
+  <!-- Interactive Data Particle Canvas Background -->
+  <canvas id="bg-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+  <div class="relative z-10 flex flex-col min-h-screen">
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-24">
+
+      <!-- HERO SECTION / EDITORIAL HEADER -->
+      <section id="hero" class="relative pt-6 pb-12 overflow-hidden">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyber-purple/15 border border-cyber-purple/40 text-cyber-purple text-xs font-mono mb-6">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Blog Académico Interactivo | Competencias Investigativas
+        </div>
+        
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-white leading-tight mb-6 max-w-5xl">
+          ¿Cómo investigar el impacto de la <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-cyan via-teal-300 to-cyber-purple">IA generativa (ChatGPT, Copilot, Gemini)</span> en el aprendizaje y el trabajo?
+        </h1>
+        
+        <p class="text-lg md:text-xl text-gray-300 max-w-4xl leading-relaxed mb-8">
+          La <strong class="text-white">IA generativa (ChatGPT, Copilot, Gemini)</strong> transformó la forma en que programamos, redactamos, analizamos datos y aprendemos. Pero, ¿cómo investigamos científicamente si de verdad nos hace más productivos o si genera pereza cognitiva? A través de los aportes de <strong class="text-cyber-cyan">Hernández-Sampieri</strong> y <strong class="text-cyber-purple">Ñaupas Paitán</strong>, exploramos cómo los <strong class="text-white">diseños cuantitativos y cualitativos</strong> nos dan respuestas rigurosas a estas preguntas cotidianas.
+        </p>
+
+        <!-- Metadata Bar (Peer & Teacher Forum Card) -->
+        <div class="glass-card rounded-2xl p-5 border border-white/10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-mono">
+          <div class="flex items-center gap-3">
+            <div class="p-2.5 rounded-xl bg-cyber-cyan/10 text-cyber-cyan"><i data-lucide="user-check" class="w-5 h-5"></i></div>
+            <div>
+              <span class="text-gray-400 block text-[11px]">Tema Central:</span>
+              <span class="text-white font-semibold">IA generativa (ChatGPT, Copilot, Gemini)</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="p-2.5 rounded-xl bg-cyber-purple/10 text-cyber-purple"><i data-lucide="graduation-cap" class="w-5 h-5"></i></div>
+            <div>
+              <span class="text-gray-400 block text-[11px]">Asignatura:</span>
+              <span class="text-white font-semibold">Competencias investigativas</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="p-2.5 rounded-xl bg-cyber-emerald/10 text-cyber-emerald"><i data-lucide="book-open" class="w-5 h-5"></i></div>
+            <div>
+              <span class="text-gray-400 block text-[11px]">Bases Teóricas:</span>
+              <span class="text-white font-semibold">Sampieri (Cap. 7 y 14) & Ñaupas (Cap. IX)</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <div class="p-2.5 rounded-xl bg-cyber-amber/10 text-cyber-amber"><i data-lucide="message-square" class="w-5 h-5"></i></div>
+            <div>
+              <span class="text-gray-400 block text-[11px]">Destino del Recurso:</span>
+              <span class="text-white font-semibold">Socialización en Foro de Módulo</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 1: NÚCLEO TEÓRICO APLICADO -->
+      <section id="fundamentos" class="space-y-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/10 pb-6">
+          <div>
+            <div class="text-xs font-mono text-cyber-cyan uppercase tracking-widest mb-1">Conceptos Clave Explicados Fácilmente</div>
+            <h2 class="text-3xl font-heading font-bold text-white">1. El Diseño de Investigación: La Hoja de Ruta</h2>
+          </div>
+          <p class="text-sm text-gray-400 max-w-md">
+            Según <strong class="text-gray-200">Hernández-Sampieri (2018)</strong>, el diseño es el "mapa estratégico" que trazamos para responder a una pregunta sin engañarnos a nosotros mismos.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          
+          <!-- Ruta Cuantitativa Card -->
+          <div class="glass-card rounded-2xl p-6 md:p-8 relative overflow-hidden group hover:border-cyber-cyan/50 transition-all duration-300">
+            <div class="absolute top-0 right-0 w-36 h-36 bg-cyber-cyan/10 rounded-full blur-2xl group-hover:bg-cyber-cyan/20 transition-all"></div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="px-3 py-1 rounded-full bg-cyber-cyan/15 text-cyber-cyan text-xs font-mono border border-cyber-cyan/30">Hernández-Sampieri Cap. 7 & Ñaupas Cap. IX</span>
+              <i data-lucide="bar-chart-3" class="w-6 h-6 text-cyber-cyan"></i>
+            </div>
+            
+            <h3 class="text-2xl font-heading font-bold text-white mb-3">La Ruta Cuantitativa: ¿Se puede medir el impacto de la IA?</h3>
+            <p class="text-gray-300 text-sm leading-relaxed mb-6">
+              En el enfoque cuantitativo buscamos datos numéricos, tiempos, porcentajes y certezas estadísticas. Se divide principalmente en dos grandes caminos:
+            </p>
+
+            <div class="space-y-4">
+              <!-- Subtype A -->
+              <div class="p-4 rounded-xl bg-cyber-900/80 border border-white/5">
+                <div class="flex items-center gap-2 font-semibold text-cyber-cyan text-sm mb-1">
+                  <i data-lucide="flask-conical" class="w-4 h-4"></i> Diseños Experimentales (Manipulamos la situación)
+                </div>
+                <p class="text-xs text-gray-400 leading-normal mb-2">
+                  Nosotros decidimos quién usa IA generativa (ChatGPT, Copilot, Gemini) y quién no para comparar resultados directamente:
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px] font-mono text-gray-300">
+                  <div class="p-2 rounded bg-cyber-850 border border-white/5">
+                    <strong class="text-white block">Pre-experimento:</strong>
+                    Un solo grupo prueba Copilot o Gemini Code Assist y medimos si terminaron más rápido. (Poco control, no hay con quién comparar).
+                  </div>
+                  <div class="p-2 rounded bg-cyber-850 border border-white/5">
+                    <strong class="text-white block">Cuasi-experimento:</strong>
+                    Comparamos el aula matutina (con ChatGPT o Gemini) con el aula vespertina (sin asistentes). (Grupos ya formados).
+                  </div>
+                  <div class="p-2 rounded bg-cyber-cyan/10 border border-cyber-cyan/30 text-cyber-cyan">
+                    <strong class="block">Experimento Puro:</strong>
+                    Sorteamos al azar qué programadores usan IA generativa y quiénes no. Garantiza máxima validez interna.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Subtype B -->
+              <div class="p-4 rounded-xl bg-cyber-900/80 border border-white/5">
+                <div class="flex items-center gap-2 font-semibold text-cyber-cyan text-sm mb-1">
+                  <i data-lucide="eye" class="w-4 h-4"></i> Diseños No Experimentales (Observamos sin intervenir)
+                </div>
+                <p class="text-xs text-gray-400 leading-normal mb-2">
+                  No obligamos a nadie a usar nada, solo observamos la realidad tal como ocurre:
+                </p>
+                <div class="grid grid-cols-2 gap-2 text-[11px] font-mono text-gray-300">
+                  <div class="p-2 rounded bg-cyber-850 border border-white/5">
+                    <span class="text-white block font-bold">Transeccional (Una foto):</span>
+                    Hacer una encuesta hoy a 500 estudiantes universitarios para ver cuántas horas al día usan IA generativa (ChatGPT, Copilot, Gemini) para sus ensayos o tareas.
+                  </div>
+                  <div class="p-2 rounded bg-cyber-850 border border-white/5">
+                    <span class="text-white block font-bold">Longitudinal (Una película):</span>
+                    Hacer seguimiento a los mismos estudiantes durante 3 años para ver si su pensamiento crítico evoluciona con el uso constante de IA.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ruta Cualitativa Card -->
+          <div class="glass-card rounded-2xl p-6 md:p-8 relative overflow-hidden group hover:border-cyber-purple/50 transition-all duration-300">
+            <div class="absolute top-0 right-0 w-36 h-36 bg-cyber-purple/10 rounded-full blur-2xl group-hover:bg-cyber-purple/20 transition-all"></div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="px-3 py-1 rounded-full bg-cyber-purple/15 text-cyber-purple text-xs font-mono border border-cyber-purple/30">Hernández-Sampieri Cap. 14</span>
+              <i data-lucide="message-circle" class="w-6 h-6 text-cyber-purple"></i>
+            </div>
+            
+            <h3 class="text-2xl font-heading font-bold text-white mb-3">La Ruta Cualitativa: ¿Qué sienten y experimentan las personas?</h3>
+            <p class="text-gray-300 text-sm leading-relaxed mb-6">
+              No todo cabe en una gráfica o promedio. El enfoque cualitativo es flexible y busca comprender las emociones, la frustración, la confianza o la pérdida de creatividad humana:
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div class="p-3.5 rounded-xl bg-cyber-900/80 border border-white/5">
+                <span class="text-cyber-purple font-semibold text-xs flex items-center gap-1.5 mb-1">
+                  <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Fenomenología
+                </span>
+                <p class="text-[11px] text-gray-400">
+                  <strong>Ejemplo:</strong> ¿Qué se siente delegar ideas a la IA generativa (ChatGPT, Copilot, Gemini)? Entrevistar a profesionales sobre la "angustia creativa" o el alivio al co-escribir con estos modelos.
+                </p>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-cyber-900/80 border border-white/5">
+                <span class="text-cyber-purple font-semibold text-xs flex items-center gap-1.5 mb-1">
+                  <i data-lucide="network" class="w-3.5 h-3.5"></i> Teoría Fundamentada
+                </span>
+                <p class="text-[11px] text-gray-400">
+                  <strong>Ejemplo:</strong> Analizar conversaciones con decenas de ingenieros para crear un modelo teórico sobre en qué momento deciden confiar o rechazar las sugerencias de Copilot o Gemini.
+                </p>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-cyber-900/80 border border-white/5">
+                <span class="text-cyber-purple font-semibold text-xs flex items-center gap-1.5 mb-1">
+                  <i data-lucide="users" class="w-3.5 h-3.5"></i> Etnografía Digital
+                </span>
+                <p class="text-[11px] text-gray-400">
+                  <strong>Ejemplo:</strong> Infiltrarse en comunidades virtuales de Discord, Reddit o GitHub para estudiar los nuevos códigos éticos, memes y prácticas colaborativas con IA generativa.
+                </p>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-cyber-900/80 border border-white/5">
+                <span class="text-cyber-purple font-semibold text-xs flex items-center gap-1.5 mb-1">
+                  <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Investigación-Acción
+                </span>
+                <p class="text-[11px] text-gray-400">
+                  <strong>Ejemplo:</strong> Un equipo docente introduce IA generativa (ChatGPT, Copilot, Gemini) en su curso, detecta desafíos de evaluación, co-diseña nuevas rúbricas con los estudiantes y ajusta la práctica de aula.
+                </p>
+              </div>
+            </div>
+
+            <div class="mt-4 p-3 rounded-xl bg-cyber-purple/10 border border-cyber-purple/20 text-xs text-cyber-purple flex items-start gap-2">
+              <i data-lucide="lightbulb" class="w-4 h-4 shrink-0 mt-0.5"></i>
+              <span><strong>En pocas palabras:</strong> El enfoque cuantitativo nos dice <em>cuánto</em> mejora el rendimiento; el enfoque cualitativo nos explica <em>por qué y cómo</em> la gente lo vive.</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 2: COMPARATIVE MATRIX -->
+      <section id="matriz-comparativa" class="space-y-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/10 pb-6">
+          <div>
+            <div class="text-xs font-mono text-cyber-cyan uppercase tracking-widest mb-1">Comparación Directa</div>
+            <h2 class="text-3xl font-heading font-bold text-white">2. Semejanzas y Diferencias: Cara a Cara</h2>
+          </div>
+          <p class="text-sm text-gray-400 max-w-md">
+            Según <strong class="text-gray-200">Ñaupas Paitán et al. (2018)</strong>, ambos enfoques son científicos y rigurosos, pero miran el mismo fenómeno con "gafas" distintas.
+          </p>
+        </div>
+
+        <!-- Filter tabs for Matrix -->
+        <div class="flex flex-wrap gap-2 pb-2">
+          <button onclick="filterMatrix('all')" id="btn-tab-all" class="matrix-btn px-4 py-2 rounded-xl text-xs font-mono bg-cyber-cyan text-cyber-950 font-bold transition-all">Ver Todo</button>
+          <button onclick="filterMatrix('objetivo')" id="btn-tab-objetivo" class="matrix-btn px-4 py-2 rounded-xl text-xs font-mono bg-cyber-850 hover:bg-cyber-800 text-gray-300 transition-all">Objetivo y Enfoque</button>
+          <button onclick="filterMatrix('datos')" id="btn-tab-datos" class="matrix-btn px-4 py-2 rounded-xl text-xs font-mono bg-cyber-850 hover:bg-cyber-800 text-gray-300 transition-all">Datos e Instrumentos</button>
+          <button onclick="filterMatrix('resultado')" id="btn-tab-resultado" class="matrix-btn px-4 py-2 rounded-xl text-xs font-mono bg-cyber-850 hover:bg-cyber-800 text-gray-300 transition-all">Resultados Esperados</button>
+        </div>
+
+        <!-- The Responsive Comparison Table -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-white/10">
+          <div class="overflow-x-auto terminal-scrollbar">
+            <table class="w-full text-left text-sm border-collapse min-w-[700px]">
+              <thead>
+                <tr class="bg-cyber-900 border-b border-white/10 text-xs font-mono uppercase text-gray-400">
+                  <th class="p-4 w-1/4">Aspecto de Investigación</th>
+                  <th class="p-4 w-3/8 text-cyber-cyan font-bold border-l border-white/5">
+                    <span class="flex items-center gap-1.5"><i data-lucide="binary" class="w-4 h-4"></i> Cuantitativo (Medición Numérica)</span>
+                  </th>
+                  <th class="p-4 w-3/8 text-cyber-purple font-bold border-l border-white/5">
+                    <span class="flex items-center gap-1.5"><i data-lucide="message-square" class="w-4 h-4"></i> Cualitativo (Comprensión Humana)</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-white/5 text-gray-300">
+                
+                <tr class="matrix-row row-objetivo hover:bg-white/[0.02]">
+                  <td class="p-4 font-semibold text-white">Pregunta Típica sobre IA generativa (ChatGPT, Copilot, Gemini)</td>
+                  <td class="p-4 border-l border-white/5 text-xs leading-relaxed">
+                    <em>¿En qué porcentaje reduce la IA generativa (ChatGPT, Copilot, Gemini) el tiempo necesario para resolver un problema de desarrollo de software o redacción?</em>
+                  </td>
+                  <td class="p-4 border-l border-white/5 text-xs leading-relaxed">
+                    <em>¿Cómo experimentan los estudiantes y trabajadores el temor a volverse cognitivamente dependientes de la IA generativa (ChatGPT, Copilot, Gemini)?</em>
+                  </td>
+                </tr>
+
+                <tr class="matrix-row row-objetivo hover:bg-white/[0.02]">
+                  <td class="p-4 font-semibold text-white">Flexibilidad del Diseño</td>
+                  <td class="p-4 border-l border-white/5 text-xs leading-relaxed">
+                    <strong>Estructurado y prefijado.</strong> Se define la hipótesis y las variables antes de empezar y no se cambian a mitad de camino para no alterar el experimento.
+                  </td>
+                  <td class="p-4 border-l border-white/5 text-xs leading-relaxed">
+                    <strong>Flexible y adaptable.</strong> Si durante una entrevista un estudiante menciona algo inesperado (ej. "me genera síndrome del impostor"), el investigador puede profundizar allí.
+                  </td>
+                </tr>
+
+                <tr class="matrix-row row-datos hover:bg-white/[0.02]">
+                  <td class="p-4 font-semibold text-white">Instrumentos y Recolección de Datos</td>
+                  <td class="p-4 border-l border-white/5 text-xs leading-relaxed">
+                    Cronómetros de plataforma (telemetría), logs de interacción con IA generativa (ChatGPT, Copilot, Gemini), pruebas estandarizadas, escalas psicométricas numéricas (Likert).
+                  </td>
+                  <td class="p-4 border-l border-white/5 text-xs leading-relaxed">
+                    Entrevistas en profundidad, protocolos de pensamiento en voz alta mientras se interactúa con prompts, diarios reflexivos y grupos focales.
+                  </td>
+                </tr>
+
+                <tr class="matrix-row row-datos hover:bg-white/[0.02]">
+                  <td class="p-4 font-semibold text-white">Muestra de Participantes</td>
+                  <td class="p-4 border-l border-white/5 text-xs leading-relaxed">
+                    Muestras grandes (cientos o miles) seleccionadas estadísticamente para poder generalizar los resultados a toda la población.
+                  </td>
+                  <td class="p-4 border-l border-white/5 text-xs leading-relaxed">
+                    Muestras pequeñas y deliberadas (ej. 15 programadores con perfiles muy distintos) para profundizar en el significado de sus vivencias.
+                  </td>
+                </tr>
+
+                <tr class="matrix-row row-resultado hover:bg-white/[0.02]">
+                  <td class="p-4 font-semibold text-white">Lo que Demuestran los Resultados</td>
+                  <td class="p-4 border-l border-white/5 text-xs leading-relaxed">
+                    Comprobación o rechazo de hipótesis mediante tablas estadísticas, correlaciones numéricas y márgenes de error medibles.
+                  </td>
+                  <td class="p-4 border-l border-white/5 text-xs leading-relaxed">
+                    Narrativas enriquecidas, categorías conceptuales, frases textuales de los participantes y patrones profundos de comportamiento.
+                  </td>
+                </tr>
+
+                <tr class="matrix-row row-objetivo row-datos row-resultado hover:bg-white/[0.02]">
+                  <td class="p-4 font-semibold text-white">Semejanzas (Puntos de Encuentro)</td>
+                  <td colspan="2" class="p-4 border-l border-white/5 text-xs text-cyber-amber leading-relaxed bg-cyber-amber/5">
+                    <strong>Ambos caminos son rigurosos y científicos:</strong> Tanto el cuantitativo como el cualitativo parten de una revisión previa de la literatura, exigen honestidad intelectual y ética del investigador, analizan evidencias concretas de la realidad y buscan generar conocimiento que sirva para tomar mejores decisiones en educación y tecnología.
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: REAL-WORLD PAPERS EXAMPLES -->
+      <section id="papers-reales" class="space-y-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/10 pb-6">
+          <div>
+            <div class="text-xs font-mono text-cyber-cyan uppercase tracking-widest mb-1">Evidencia Real en Bases de Datos Académicas (Últimos Años)</div>
+            <h2 class="text-3xl font-heading font-bold text-white">3. Investigaciones Reales Publicadas</h2>
+          </div>
+          <p class="text-sm text-gray-400 max-w-md">
+            Veamos cómo los científicos de universidades prestigiosas aplicaron estos diseños exactos para estudiar la IA generativa (ChatGPT, Copilot, Gemini) en bases de datos indexadas (ACM, IEEE, Elsevier).
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- Paper 1: Cuantitativo Experimental (Productividad con IA Generativa) -->
+          <article class="glass-card rounded-2xl p-6 border border-white/10 flex flex-col justify-between hover:shadow-lg transition-all hover:border-cyber-cyan">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span class="px-2.5 py-1 rounded bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-mono font-semibold flex items-center gap-1.5">
+                  <i data-lucide="book-marked" class="w-3.5 h-3.5"></i> ACM Digital Library / arXiv
+                </span>
+                <span class="text-xs font-mono text-cyber-cyan bg-cyber-cyan/10 px-2 py-0.5 rounded font-semibold">Diseño Experimental Puro</span>
+              </div>
+              
+              <h3 class="text-lg font-heading font-bold text-white mb-2 leading-snug">
+                The Impact of Generative AI on Developer Productivity: Evidence from Code-Generation Assistants
+              </h3>
+              <div class="text-xs font-mono text-gray-400 mb-4">Peng, Kalliamvakou, Cihon & Demirer (2023) - Investigación con Microsoft Research</div>
+
+              <div class="space-y-3 text-xs text-gray-300">
+                <div class="p-3 rounded-lg bg-cyber-900 border border-white/5">
+                  <strong class="text-cyber-cyan block mb-1">¿Cómo fue el Diseño de Investigación?</strong>
+                  Un <strong>experimento puro aleatorizado (RCT)</strong>. Convocaron a 95 desarrolladores de software y los dividieron al azar en dos grupos idénticos: a un grupo le dieron acceso a herramientas de IA generativa (Copilot / Gemini Code Assist) y al otro no (grupo de control). Ambos debían programar un servidor HTTP en JavaScript desde cero.
+                </div>
+                <div class="p-3 rounded-lg bg-cyber-900 border border-white/5">
+                  <strong class="text-cyber-cyan block mb-1">Técnicas e Instrumentos de Recolección:</strong>
+                  Cronómetros automatizados en el entorno de desarrollo (telemetría web) y una batería de <em>tests unitarios</em> automáticos para validar que el código funcionara sin trampas ni errores de sintaxis.
+                </div>
+                <div class="p-3 rounded-lg bg-cyber-900 border border-white/5">
+                  <strong class="text-cyber-cyan block mb-1">Hallazgo Clave:</strong>
+                  El grupo que utilizó IA generativa terminó la tarea un <strong>55.8% más rápido</strong> (71 minutos vs. 160 minutos), con una tasa de éxito similar.
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+              <span class="text-[11px] font-mono text-gray-400">Control estricto de variables</span>
+              <a href="https://dl.acm.org" target="_blank" rel="noopener noreferrer" class="text-xs text-cyber-cyan hover:underline inline-flex items-center gap-1 font-mono">
+                Consultar en ACM <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Paper 2: Cuantitativo No Experimental (IA Generativa en Exámenes de Universidad) -->
+          <article class="glass-card rounded-2xl p-6 border border-white/10 flex flex-col justify-between hover:shadow-lg transition-all hover:border-cyber-cyan">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span class="px-2.5 py-1 rounded bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-mono font-semibold flex items-center gap-1.5">
+                  <i data-lucide="book-marked" class="w-3.5 h-3.5"></i> Computers & Education (Elsevier)
+                </span>
+                <span class="text-xs font-mono text-teal-300 bg-teal-500/10 px-2 py-0.5 rounded font-semibold">Diseño No Experimental Transeccional</span>
+              </div>
+              
+              <h3 class="text-lg font-heading font-bold text-white mb-2 leading-snug">
+                Student Perception and Academic Performance with Generative AI (ChatGPT, Gemini): A Large-Scale Survey Study
+              </h3>
+              <div class="text-xs font-mono text-gray-400 mb-4">Computers and Education: Artificial Intelligence (2024)</div>
+
+              <div class="space-y-3 text-xs text-gray-300">
+                <div class="p-3 rounded-lg bg-cyber-900 border border-white/5">
+                  <strong class="text-cyber-cyan block mb-1">¿Cómo fue el Diseño de Investigación?</strong>
+                  Un <strong>diseño no experimental transeccional correlacional</strong>. Los investigadores no manipularon las clases; aplicaron un estudio transversal en un solo momento para comparar las calificaciones de 1,200 estudiantes universitarios con su frecuencia de uso de IA generativa (ChatGPT, Copilot, Gemini).
+                </div>
+                <div class="p-3 rounded-lg bg-cyber-900 border border-white/5">
+                  <strong class="text-cyber-cyan block mb-1">Técnicas e Instrumentos de Recolección:</strong>
+                  Cuestionario estandarizado con escala Likert (1 a 5) validado por expertos, combinado con las calificaciones oficiales registradas en el sistema académico institucional.
+                </div>
+                <div class="p-3 rounded-lg bg-cyber-900 border border-white/5">
+                  <strong class="text-cyber-cyan block mb-1">Hallazgo Clave:</strong>
+                  El uso moderado de IA generativa como tutor complementario se correlacionó positivamente con el desempeño, pero la delegación ciega de respuestas se asoció con bajas calificaciones en evaluaciones presenciales sin conexión.
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+              <span class="text-[11px] font-mono text-gray-400">Muestra: 1,200 estudiantes</span>
+              <a href="https://www.sciencedirect.com" target="_blank" rel="noopener noreferrer" class="text-xs text-cyber-cyan hover:underline inline-flex items-center gap-1 font-mono">
+                Consultar en ScienceDirect <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Paper 3: Cualitativo - Fenomenología (La vivencia psicológica con IA generativa) -->
+          <article class="glass-card rounded-2xl p-6 border border-white/10 flex flex-col justify-between hover:shadow-lg transition-all hover:border-cyber-purple">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span class="px-2.5 py-1 rounded bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-mono font-semibold flex items-center gap-1.5">
+                  <i data-lucide="book-marked" class="w-3.5 h-3.5"></i> ACM CHI Conference
+                </span>
+                <span class="text-xs font-mono text-cyber-purple bg-cyber-purple/10 px-2 py-0.5 rounded font-semibold">Diseño Fenomenológico Cualitativo</span>
+              </div>
+              
+              <h3 class="text-lg font-heading font-bold text-white mb-2 leading-snug">
+                "It Gives Me Words I Couldn't Find, But Takes My Voice": The Lived Experience with Generative AI (ChatGPT, Gemini)
+              </h3>
+              <div class="text-xs font-mono text-gray-400 mb-4">Proceedings of the CHI Conference on Human Factors in Computing Systems (2024)</div>
+
+              <div class="space-y-3 text-xs text-gray-300">
+                <div class="p-3 rounded-lg bg-cyber-900 border border-white/5">
+                  <strong class="text-cyber-purple block mb-1">¿Cómo fue el Diseño de Investigación?</strong>
+                  Un <strong>estudio fenomenológico</strong>. El objetivo era indagar la vivencia subjetiva profunda de 24 profesionales y estudiantes que utilizaron IA generativa (ChatGPT, Copilot, Gemini) para redactar y solucionar problemas, analizando la tensión entre productividad y despersonalización creativa.
+                </div>
+                <div class="p-3 rounded-lg bg-cyber-900 border border-white/5">
+                  <strong class="text-cyber-purple block mb-1">Técnicas e Instrumentos de Recolección:</strong>
+                  Entrevistas semiestructuradas de 60 minutos, análisis temático inductivo en software MAXQDA y protocolos de "pensamiento en voz alta" en sesiones en tiempo real.
+                </div>
+                <div class="p-3 rounded-lg bg-cyber-900 border border-white/5">
+                  <strong class="text-cyber-purple block mb-1">Hallazgo Clave:</strong>
+                  Se identificó el fenómeno de la "pereza creativa culpable": los usuarios experimentan gratificación inmediata al terminar rápido, pero un vacío identitario al sentir que las ideas no surgieron de su propia reflexión.
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+              <span class="text-[11px] font-mono text-gray-400">Rigor: Saturación temática</span>
+              <a href="https://dl.acm.org" target="_blank" rel="noopener noreferrer" class="text-xs text-cyber-purple hover:underline inline-flex items-center gap-1 font-mono">
+                Consultar en ACM <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </article>
+
+          <!-- Paper 4: Cualitativo - Investigación-Acción (Docentes transformando su aula) -->
+          <article class="glass-card rounded-2xl p-6 border border-white/10 flex flex-col justify-between hover:shadow-lg transition-all hover:border-cyber-purple">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span class="px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-semibold flex items-center gap-1.5">
+                  <i data-lucide="book-marked" class="w-3.5 h-3.5"></i> IEEE Transactions on Education
+                </span>
+                <span class="text-xs font-mono text-cyber-emerald bg-cyber-emerald/10 px-2 py-0.5 rounded font-semibold">Diseño Investigación-Acción</span>
+              </div>
+              
+              <h3 class="text-lg font-heading font-bold text-white mb-2 leading-snug">
+                Adapting Engineering Pedagogy to the Era of Generative AI (ChatGPT, Copilot, Gemini): A Participatory Action Research Study
+              </h3>
+              <div class="text-xs font-mono text-gray-400 mb-4">IEEE Transactions on Education (2023)</div>
+
+              <div class="space-y-3 text-xs text-gray-300">
+                <div class="p-3 rounded-lg bg-cyber-900 border border-white/5">
+                  <strong class="text-cyber-emerald block mb-1">¿Cómo fue el Diseño de Investigación?</strong>
+                  Un <strong>diseño de Investigación-Acción participativa</strong> desarrollado en ciclos sucesivos: 1) Diagnosticar el impacto no supervisado de la IA generativa; 2) Diseñar talleres donde los alumnos debían identificar alucinaciones y bugs generados por ChatGPT y Gemini; 3) Evaluar la competencia crítica en conjunto.
+                </div>
+                <div class="p-3 rounded-lg bg-cyber-900 border border-white/5">
+                  <strong class="text-cyber-emerald block mb-1">Técnicas e Instrumentos de Recolección:</strong>
+                  Diarios de campo de los docentes, grabaciones de grupos focales y rúbricas cualitativas de evaluación de razonamiento crítico.
+                </div>
+                <div class="p-3 rounded-lg bg-cyber-900 border border-white/5">
+                  <strong class="text-cyber-emerald block mb-1">Hallazgo Clave:</strong>
+                  Prohibir la tecnología fue ineficaz; convertir a los estudiantes en auditores críticos de las respuestas de la IA generativa elevó la motivación y el rigor metodológico.
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+              <span class="text-[11px] font-mono text-gray-400">Ciclos recursivos de cambio</span>
+              <a href="https://ieeexplore.ieee.org" target="_blank" rel="noopener noreferrer" class="text-xs text-cyber-emerald hover:underline inline-flex items-center gap-1 font-mono">
+                Consultar en IEEE <i data-lucide="external-link" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- SECTION 4: DIDACTIC MULTIMEDIA & ACADEMIC REPOSITORIES -->
+      <section id="audiovisual" class="space-y-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/10 pb-6">
+          <div>
+            <div class="text-xs font-mono text-cyber-cyan uppercase tracking-widest mb-1">Recursos Multimedia y Enlaces Académicos</div>
+            <h2 class="text-3xl font-heading font-bold text-white">4. Biblioteca Audiovisual & Profundización</h2>
+          </div>
+          <p class="text-sm text-gray-400 max-w-md">
+            Videos explicativos seleccionados para afianzar cada diseño y enlaces a bases de datos académicas para profundizar en la materia.
+          </p>
+        </div>
+
+        <!-- Video Masterclasses Grid with Cinematic Media Cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          
+          <!-- Cuanti Video Resource -->
+          <div class="glass-card rounded-2xl p-6 border border-white/10 space-y-4 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-cyber-cyan bg-cyber-cyan/10 px-3 py-1 rounded-full flex items-center gap-1.5 border border-cyber-cyan/30">
+                  <i data-lucide="play-circle" class="w-3.5 h-3.5"></i> Video Didáctico: Enfoque Cuantitativo
+                </span>
+                <span class="text-xs text-gray-400 font-mono">Diseños Experimentales</span>
+              </div>
+
+              <h3 class="text-xl font-heading font-bold text-white">Diseño de la Investigación Cuantitativa (Sampieri)</h3>
+              <p class="text-xs text-gray-300 leading-relaxed">
+                Explicación metodológica sobre cómo se define un grupo de control, la manipulación de variables independientes y el control de validez interna y externa.
+              </p>
+
+              <!-- Video Thumbnail Player Card with Instant Open -->
+              <a href="https://www.youtube.com/watch?v=Bd2I739HJ8I" target="_blank" rel="noopener noreferrer" class="group relative block w-full aspect-video rounded-xl overflow-hidden border border-white/15 bg-cyber-950 cursor-pointer shadow-lg hover:border-cyber-cyan transition-all duration-300">
+                <img 
+                  src="https://img.youtube.com/vi/Bd2I739HJ8I/maxresdefault.jpg" 
+                  alt="Miniatura Video Cuantitativo" 
+                  onerror="this.onerror=null; this.src='https://img.youtube.com/vi/Bd2I739HJ8I/hqdefault.jpg';" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85 group-hover:opacity-100"
+                />
+                
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-center justify-center">
+                  <!-- Play Button Badge -->
+                  <div class="w-16 h-16 rounded-full bg-red-600/90 text-white flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:bg-red-500 transition-all duration-300 border-2 border-white/20">
+                    <svg class="w-7 h-7 fill-current translate-x-0.5" viewBox="0 0 24 24">
+                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs font-mono">
+                  <span class="px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-md text-white border border-white/10 flex items-center gap-1.5">
+                    <i data-lucide="youtube" class="w-3.5 h-3.5 text-red-500"></i> YouTube HD
+                  </span>
+                  <span class="px-2.5 py-1 rounded-md bg-cyber-cyan text-cyber-950 font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    Reproducir video <i data-lucide="external-link" class="w-3 h-3"></i>
+                  </span>
+                </div>
+              </a>
+            </div>
+
+            <div class="flex items-center justify-between text-xs pt-2 border-t border-white/5">
+              <span class="text-gray-400"><i data-lucide="tag" class="w-3.5 h-3.5 inline mr-1 text-cyber-cyan"></i>Clave: Validez Interna y Externa</span>
+              <a href="https://www.youtube.com/watch?v=Bd2I739HJ8I" target="_blank" rel="noopener noreferrer" class="text-cyber-cyan hover:underline flex items-center gap-1 font-mono">
+                Ver en YouTube <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Cuali Video Resource -->
+          <div class="glass-card rounded-2xl p-6 border border-white/10 space-y-4 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-mono text-cyber-purple bg-cyber-purple/10 px-3 py-1 rounded-full flex items-center gap-1.5 border border-cyber-purple/30">
+                  <i data-lucide="play-circle" class="w-3.5 h-3.5"></i> Video Didáctico: Enfoque Cualitativo
+                </span>
+                <span class="text-xs text-gray-400 font-mono">Métodos e Inmersión</span>
+              </div>
+
+              <h3 class="text-xl font-heading font-bold text-white">Diseños de Investigación Cualitativa (Sampieri)</h3>
+              <p class="text-xs text-gray-300 leading-relaxed">
+                Descubre cómo estructurar el abordaje cualitativo (teoría fundamentada, fenomenología, etnografía) para entender las percepciones humanas profundas.
+              </p>
+
+              <!-- Video Thumbnail Player Card with Instant Open -->
+              <a href="https://www.youtube.com/watch?v=0YyyyT38mo4" target="_blank" rel="noopener noreferrer" class="group relative block w-full aspect-video rounded-xl overflow-hidden border border-white/15 bg-cyber-950 cursor-pointer shadow-lg hover:border-cyber-purple transition-all duration-300">
+                <img 
+                  src="https://img.youtube.com/vi/0YyyyT38mo4/maxresdefault.jpg" 
+                  alt="Miniatura Video Cualitativo" 
+                  onerror="this.onerror=null; this.src='https://img.youtube.com/vi/0YyyyT38mo4/hqdefault.jpg';" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85 group-hover:opacity-100"
+                />
+                
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-center justify-center">
+                  <!-- Play Button Badge -->
+                  <div class="w-16 h-16 rounded-full bg-red-600/90 text-white flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:bg-red-500 transition-all duration-300 border-2 border-white/20">
+                    <svg class="w-7 h-7 fill-current translate-x-0.5" viewBox="0 0 24 24">
+                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs font-mono">
+                  <span class="px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-md text-white border border-white/10 flex items-center gap-1.5">
+                    <i data-lucide="youtube" class="w-3.5 h-3.5 text-red-500"></i> YouTube HD
+                  </span>
+                  <span class="px-2.5 py-1 rounded-md bg-cyber-purple text-white font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    Reproducir video <i data-lucide="external-link" class="w-3 h-3"></i>
+                  </span>
+                </div>
+              </a>
+            </div>
+
+            <div class="flex items-center justify-between text-xs pt-2 border-t border-white/5">
+              <span class="text-gray-400"><i data-lucide="tag" class="w-3.5 h-3.5 inline mr-1 text-cyber-purple"></i>Clave: Triangulación y Saturación</span>
+              <a href="https://www.youtube.com/watch?v=0YyyyT38mo4" target="_blank" rel="noopener noreferrer" class="text-cyber-purple hover:underline flex items-center gap-1 font-mono">
+                Ver en YouTube <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Academic Deep-Dive Links Deck -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="flex items-center justify-between mb-3">
+              <i data-lucide="database" class="w-5 h-5 text-cyber-amber"></i>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-gray-500 group-hover:text-cyber-amber transition-colors"></i>
+            </div>
+            <div>
+              <div class="text-sm font-bold text-white mb-1">ScienceDirect (Elsevier)</div>
+              <div class="text-xs text-gray-400 leading-snug">Publicaciones de alto factor de impacto sobre pedagogía digital y adopción tecnológica.</div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- SECTION 5: APA REFERENCES -->
+      <section id="bibliografia" class="space-y-6">
+        <div class="border-b border-white/10 pb-4">
+          <h2 class="text-2xl font-heading font-bold text-white">Referencias</h2>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 md:p-8 border border-white/10 font-mono text-xs text-gray-300 space-y-4 leading-relaxed">
+          
+          <div class="pl-8 -indent-8 border-l-2 border-cyber-cyan/50 py-1">
+            Hernández-Sampieri, R., & Mendoza Torres, C. P. (2018). <em>Metodología de la investigación: Las rutas cuantitativa, cualitativa y mixta</em> (1ª ed.). McGraw-Hill Interamericana Editores. [Cap. 7: Concepción o elección del diseño de investigación en la ruta cuantitativa: El mapa específico, pp. 148–193; Cap. 14: Elección del diseño o abordaje de investigación en la ruta cualitativa, pp. 522–568].
+          </div>
+
+          <div class="pl-8 -indent-8 border-l-2 border-cyber-cyan/50 py-1">
+            Ñaupas Paitán, H., Valdivia Dueñas, M. R., Palacios Vilela, J. J., & Romero Delgado, H. E. (2018). <em>Metodología de la investigación cuantitativa-cualitativa y redacción de tesis</em> (5ª ed.). Ediciones de la U. [Cap. IX: El diseño de investigación, pp. 347–372].
+          </div>
+
+          <div class="pl-8 -indent-8 border-l-2 border-cyber-purple/50 py-1">
+            Peng, S., Kalliamvakou, E., Cihon, P., & Demirer, M. (2023). The impact of AI on developer productivity: Evidence from GitHub Copilot. <em>arXiv preprint arXiv:2302.06590</em>. https://doi.org/10.48550/arXiv.2302.06590
+          </div>
+
+          <div class="pl-8 -indent-8 border-l-2 border-cyber-purple/50 py-1">
+            Kasneci, E., Sessler, K., Küchemann, S., Bannert, M., Dementieva, D., Fischer, F., Gasser, U., Groh, G., Günnemann, S., Hüllermeier, E., Krusche, S., Kutyniok, G., Michaeli, T., Nerdel, C., Pfeffer, J., Poquet, O., Sailer, M., Schmidt, A., Seidel, T., & Kasneci, G. (2023). ChatGPT for good? On opportunities and challenges of large language models for education. <em>Learning and Individual Differences</em>, 103, 102274. https://doi.org/10.1016/j.lindif.2023.102274
+          </div>
+
+          <div class="pl-8 -indent-8 border-l-2 border-cyber-emerald/50 py-1">
+            Gimpel, H., Hall, K., Decker, S., Eymann, T., Lämmermann, L., Mädche, A., Röglinger, M., Ruiner, C., Schoch, M., Schoop, M., Urbach, N., & Vandirk, S. (2023). Unlocking the power of generative AI models and systems such as GPT-4 and ChatGPT for higher education: A guide for students and lecturers. <em>Hohenheim Discussion Papers in Business, Economics and Social Sciences</em>, 02-2023.
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 6: INTERACTIVE CHALLENGE (QUIZ CON CALIFICACIÓN) -->
+      <section id="quiz-zone" class="space-y-6">
+        <div class="border-b border-white/10 pb-4">
+          <div class="text-xs font-mono text-cyber-cyan uppercase tracking-widest mb-1">Ponte a Prueba</div>
+          <h2 class="text-3xl font-heading font-bold text-white flex items-center gap-3">
+            <i data-lucide="sparkles" class="w-7 h-7 text-cyber-cyan animate-pulse"></i>
+            6. Micro-Reto: ¿Qué Diseño Metodológico Aplicarías?
+          </h2>
+          <p class="text-sm text-gray-300 mt-2">
+            Lee con atención estas 4 situaciones reales sobre el uso de la <strong class="text-white">IA generativa (ChatGPT, Copilot, Gemini)</strong> en el aprendizaje y el trabajo. Elige la opción correcta para demostrar tu comprensión y obtén tu calificación.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 md:p-8 border border-white/10 glow-cyan">
+          
+          <!-- Quiz Container -->
+          <div id="quiz-container" class="space-y-8">
+            <!-- Questions injected via JS -->
+          </div>
+
+          <!-- Live Score & Submit Area -->
+          <div class="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <span class="text-xs font-mono text-gray-400">Progreso del Reto:</span>
+              <span id="quiz-progress-text" class="text-xs font-mono text-cyber-cyan font-bold">0 de 4 Respondidas</span>
+            </div>
+
+            <div class="flex items-center gap-3 w-full sm:w-auto">
+              <button id="btn-reset-quiz" onclick="resetQuiz()" class="px-4 py-2.5 rounded-xl border border-white/15 text-xs font-mono text-gray-400 hover:text-white hover:bg-white/5 transition-all">
+                Reiniciar
+              </button>
+              <button id="btn-submit-quiz" onclick="evaluateQuiz()" class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-gradient-to-r from-cyber-cyan to-cyber-purple text-cyber-950 font-bold text-xs font-mono uppercase tracking-wider hover:opacity-95 glow-cyan transition-all">
+                Calificar mis Respuestas
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic Result Certificate / Feedback Card (Hidden by default) -->
+          <div id="quiz-result-card" class="hidden mt-8 p-6 rounded-2xl bg-cyber-900/90 border border-cyber-cyan/50 text-center space-y-4">
+            <div id="badge-icon" class="w-16 h-16 rounded-2xl mx-auto flex items-center justify-center text-3xl mb-2"></div>
+            <h3 id="result-title" class="text-2xl font-heading font-extrabold text-white"></h3>
+            <p id="result-desc" class="text-sm text-gray-300 max-w-xl mx-auto"></p>
+            <div class="inline-block px-5 py-2 rounded-full bg-cyber-850 border border-cyber-cyan/40 font-mono text-sm text-cyber-cyan">
+              Puntuación Obtenida: <strong id="result-score" class="text-white text-base">0 / 100</strong>
+            </div>
+            <div class="pt-2 text-xs font-mono text-gray-400">
+              *¡Genial! Puedes tomar una captura de pantalla de esta insignia o copiar el enlace para acompañar tu respuesta en el foro virtual del módulo.
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="mt-20 border-t border-white/10 glass-card py-10 px-4 md:px-8 text-xs font-mono text-gray-400">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-cyber-cyan/20 flex items-center justify-center text-cyber-cyan shrink-0">
+            <i data-lucide="layers" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <span class="text-white font-bold block">Estudio del impacto de la IA generativa (ChatGPT, Copilot, Gemini) en el aprendizaje y el trabajo</span>
+          </div>
+        </div>
+
+        <div class="text-center md:text-right space-y-1">
+          <span class="text-white font-semibold block">Actividad 6 - El diseño de investigación, múltiples posibilidades</span>
+          <span class="text-cyber-cyan block">Competencias investigativas</span>
+          <span class="text-gray-300 block">Rubén Darío García</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Toast Notification for Link Copy -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-cyber-cyan text-cyber-950 font-mono text-xs font-bold px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2">
+      <i data-lucide="check-circle" class="w-4 h-4"></i>
+      <span id="toast-msg">¡Enlace copiado al portapapeles!</span>
+    </div>
+
+  </div>
+
+  <!-- SCRIPT: INTERACTION LOGIC, UPDATED QUIZ ENGINE, CANVAS PARTICLES -->
+  <script>
+    // 1. Interactive Canvas Particle Background
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.4;
+        this.vy = (Math.random() - 0.5) * 0.4;
+        this.radius = Math.random() * 1.5 + 0.5;
+        this.color = Math.random() > 0.5 ? 'rgba(0, 245, 212, 0.4)' : 'rgba(157, 78, 221, 0.4)';
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0) this.x = width;
+        if (this.x > width) this.x = 0;
+        if (this.y < 0) this.y = height;
+        if (this.y > height) this.y = 0;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      particles = [];
+      const count = Math.min(Math.floor((width * height) / 18000), 80);
+      for (let i = 0; i < count; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, width, height);
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 110) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(255, 255, 255, ${0.05 * (1 - dist / 110)})`;
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animateParticles);
+    }
+
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      initParticles();
+    });
+
+    // 2. Filter Logic for Matrix Table
+    function filterMatrix(category) {
+      const rows = document.querySelectorAll('.matrix-row');
+      const buttons = document.querySelectorAll('.matrix-btn');
+      
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-cyber-cyan', 'text-cyber-950', 'font-bold');
+        btn.classList.add('bg-cyber-850', 'text-gray-300');
+      });
+
+      const activeBtn = document.getElementById(`btn-tab-${category}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-cyber-850', 'text-gray-300');
+        activeBtn.classList.add('bg-cyber-cyan', 'text-cyber-950', 'font-bold');
+      }
+
+      rows.forEach(row => {
+        if (category === 'all') {
+          row.style.display = '';
+        } else {
+          if (row.classList.contains(`row-${category}`)) {
+            row.style.display = '';
+          } else {
+            row.style.display = 'none';
+          }
+        }
+      });
+    }
+
+    // 3. Quiz Data tailored to Topic 4: Generative AI in Learning and Work
+    const quizData = [
+      {
+        id: 1,
+        question: "1. Deseas comprobar si usar IA generativa (ChatGPT, Copilot, Gemini) reduce el tiempo de programación. Para evitar que unos participantes sean más hábiles que otros por naturaleza, asignas a los 60 estudiantes por sorteo al azar (mitad con asistentes de IA, mitad sin ellos) para resolver el mismo ejercicio. Según Hernández-Sampieri (Cap. 7), ¿qué tipo de diseño es?",
+        options: [
+          { text: "Diseño No Experimental Longitudinal", isCorrect: false },
+          { text: "Experimento Puro (manipulación intencional y equivalencia inicial por azar)", isCorrect: true },
+          { text: "Estudio Fenomenológico Descriptivo", isCorrect: false },
+          { text: "Pre-experimento sin grupo de control", isCorrect: false }
+        ],
+        rationale: "Es un Experimento Puro porque cumple las dos reglas de oro de Hernández-Sampieri: manipulación controlada de la variable independiente (usar o no IA generativa) y asignación al azar para asegurar que los dos grupos sean estadísticamente equivalentes antes de iniciar (control de validez interna)."
+      },
+      {
+        id: 2,
+        question: "2. Una universidad aplica una encuesta a 1,500 alumnos en la última semana de clases para conocer la frecuencia con que usan IA generativa (ChatGPT, Copilot, Gemini) para sus tareas y comparar si eso tiene correlación con su promedio de calificaciones, sin modificar sus clases. ¿Qué diseño se empleó?",
+        options: [
+          { text: "Diseño Cuantitativo No Experimental Transeccional (Correlacional)", isCorrect: true },
+          { text: "Diseño Cuasiexperimental de Laboratorio", isCorrect: false },
+          { text: "Investigación-Acción Participativa", isCorrect: false },
+          { text: "Etnografía Histórica", isCorrect: false }
+        ],
+        rationale: "Es No Experimental Transeccional porque los datos se recolectaron en un único momento en el tiempo (una 'foto' fija), sin manipular ninguna variable deliberadamente, solo observando la correlación natural entre el uso de la IA y el rendimiento."
+      },
+      {
+        id: 3,
+        question: "3. Un docente nota dificultades de evaluación por el uso no crítico de IA generativa (ChatGPT, Copilot, Gemini). Decide rediseñar sus clases para enseñarles a auditar respuestas y sesgos de los modelos, evalúa su nueva estrategia, dialoga con ellos sobre sus reflexiones y ajusta sus métodos ciclo tras ciclo. ¿Qué diseño cualitativo corresponde?",
+        options: [
+          { text: "Diseño Experimental Factorial", isCorrect: false },
+          { text: "Investigación-Acción (Sampieri Cap. 14)", isCorrect: true },
+          { text: "Diseño Transeccional Descriptivo", isCorrect: false },
+          { text: "Estudio No Experimental de Panel", isCorrect: false }
+        ],
+        rationale: "Es Investigación-Acción porque el investigador es parte activa de la comunidad, y busca resolver un problema práctico real en el aula a través de ciclos reflexivos continuos (diagnóstico, acción, observación y reflexión)."
+      },
+      {
+        id: 4,
+        question: "4. Quieres investigar la vivencia emocional y la sensación de pérdida de voz propia o dependencia intelectual que experimentan los redactores al interactuar con IA generativa (ChatGPT, Copilot, Gemini). Les aplicas entrevistas abiertas a profundidad. ¿Cuál es el abordaje metodológico más adecuado?",
+        options: [
+          { text: "Censo poblacional mediante prueba estandarizada", isCorrect: false },
+          { text: "Diseño Fenomenológico Cualitativo", isCorrect: true },
+          { text: "Experimento de dos grupos aleatorizados", isCorrect: false },
+          { text: "Diseño Pre-experimental con preprueba", isCorrect: false }
+        ],
+        rationale: "La Fenomenología (Sampieri Cap. 14) se enfoca precisamente en captar la esencia de las experiencias vividas subjetivas de las personas frente a un fenómeno concreto, profundizando en significados y emociones."
+      }
+    ];
+
+    let userAnswers = {};
+
+    function renderQuiz() {
+      const container = document.getElementById('quiz-container');
+      container.innerHTML = quizData.map((q, qIndex) => `
+        <div class="p-5 md:p-6 rounded-xl bg-cyber-900/60 border border-white/5 space-y-4" id="q-card-${q.id}">
+          <h4 class="text-sm md:text-base font-semibold text-white leading-snug">${q.question}</h4>
+          <div class="space-y-2">
+            ${q.options.map((opt, optIndex) => `
+              <label class="flex items-start gap-3 p-3 rounded-lg border border-white/10 hover:border-cyber-cyan/40 bg-cyber-850/60 cursor-pointer transition-all option-label" data-qid="${q.id}" data-optindex="${optIndex}">
+                <input type="radio" name="question-${q.id}" value="${optIndex}" class="mt-1 accent-cyber-cyan text-cyber-cyan focus:ring-cyber-cyan" onchange="selectAnswer(${q.id}, ${optIndex})">
+                <span class="text-xs md:text-sm text-gray-300">${opt.text}</span>
+              </label>
+            `).join('')}
+          </div>
+          <div id="feedback-${q.id}" class="hidden p-3 rounded-lg text-xs leading-relaxed font-mono"></div>
+        </div>
+      `).join('');
+    }
+
+    function selectAnswer(qid, optIndex) {
+      userAnswers[qid] = optIndex;
+      const answeredCount = Object.keys(userAnswers).length;
+      document.getElementById('quiz-progress-text').innerText = `${answeredCount} de ${quizData.length} Respondidas`;
+    }
+
+    function evaluateQuiz() {
+      const answeredCount = Object.keys(userAnswers).length;
+      if (answeredCount < quizData.length) {
+        showToast("Por favor responde las 4 preguntas antes de calificar.", "warning");
+        return;
+      }
+
+      let correctCount = 0;
+      quizData.forEach(q => {
+        const selectedIndex = userAnswers[q.id];
+        const isCorrect = q.options[selectedIndex].isCorrect;
+        const feedbackEl = document.getElementById(`feedback-${q.id}`);
+        feedbackEl.classList.remove('hidden', 'bg-red-500/10', 'text-red-300', 'border-red-500/30', 'bg-emerald-500/10', 'text-emerald-300', 'border-emerald-500/30');
+
+        if (isCorrect) {
+          correctCount++;
+          feedbackEl.className = "p-3 rounded-lg text-xs leading-relaxed font-mono bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 block";
+          feedbackEl.innerHTML = `<strong>¡Correcto!</strong> ${q.rationale}`;
+        } else {
+          feedbackEl.className = "p-3 rounded-lg text-xs leading-relaxed font-mono bg-red-500/15 border border-red-500/30 text-red-300 block";
+          feedbackEl.innerHTML = `<strong>Incorrecto.</strong> ${q.rationale}`;
+        }
+      });
+
+      const score = Math.round((correctCount / quizData.length) * 100);
+      const resultCard = document.getElementById('quiz-result-card');
+      const badgeIcon = document.getElementById('badge-icon');
+      const resultTitle = document.getElementById('result-title');
+      const resultDesc = document.getElementById('result-desc');
+      const resultScore = document.getElementById('result-score');
+
+      resultScore.innerText = `${score} / 100 (${correctCount}/${quizData.length})`;
+      resultCard.classList.remove('hidden');
+
+      if (score === 100) {
+        badgeIcon.className = "w-16 h-16 rounded-2xl mx-auto flex items-center justify-center text-3xl bg-cyber-cyan/20 border border-cyber-cyan text-cyber-cyan";
+        badgeIcon.innerHTML = "🎯";
+        resultTitle.innerText = "¡Excelente! Dominio Metodológico Total";
+        resultDesc.innerText = "Distingues a la perfección cuándo usar un experimento, una encuesta o un abordaje cualitativo para investigar el impacto de la Inteligencia Artificial.";
+      } else if (score >= 75) {
+        badgeIcon.className = "w-16 h-16 rounded-2xl mx-auto flex items-center justify-center text-3xl bg-cyber-purple/20 border border-cyber-purple text-cyber-purple";
+        badgeIcon.innerHTML = "✨";
+        resultTitle.innerText = "¡Muy Buen Trabajo!";
+        resultDesc.innerText = "Comprendes con claridad los conceptos centrales de Hernández-Sampieri y Ñaupas Paitán. Revisa la retroalimentación para afianzar cada caso.";
+      } else {
+        badgeIcon.className = "w-16 h-16 rounded-2xl mx-auto flex items-center justify-center text-3xl bg-cyber-amber/20 border border-cyber-amber text-cyber-amber";
+        badgeIcon.innerHTML = "📚";
+        resultTitle.innerText = "¡Buen Intento! Repasemos un poco más";
+        resultDesc.innerText = "Revisa de nuevo la sección 1 (Fundamentos) y la matriz comparativa para tener totalmente claros los conceptos antes de debatir en el foro.";
+      }
+
+      resultCard.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function resetQuiz() {
+      userAnswers = {};
+      document.getElementById('quiz-progress-text').innerText = "0 de 4 Respondidas";
+      document.getElementById('quiz-result-card').classList.add('hidden');
+      renderQuiz();
+      showToast("Cuestionario reiniciado.", "info");
+    }
+
+    // 4. Toast & Copy to Clipboard
+    function copyForumLink() {
+      const url = window.location.href;
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(url).then(() => {
+          showToast("¡Enlace copiado! Listo para compartir en el foro.", "success");
+        }).catch(() => fallbackCopy(url));
+      } else {
+        fallbackCopy(url);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-999999px";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showToast("¡Enlace copiado! Listo para compartir en el foro.", "success");
+      } catch (err) {
+        showToast("Selecciona y copia la URL desde la barra de tu navegador.", "warning");
+      }
+      document.body.removeChild(textArea);
+    }
+
+    function showToast(msg, type) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-msg');
+      toastMsg.innerText = msg;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3500);
+    }
+
+    // 5. Interactive Video Player Handler (Avoids Error 153 sandbox issues)
+    function playVideo(target, videoId) {
+      const wrapper = document.getElementById(`video-wrapper-${target}`);
+      if (!wrapper) return;
+      
+      wrapper.innerHTML = `
+        <iframe 
+          class="w-full h-full"
+          src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1" 
+          title="Video Didáctico Sampieri" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      `;
+    }
+
+    // Initialization on Window Load
+    window.onload = function() {
+      lucide.createIcons();
+      resizeCanvas();
+      initParticles();
+      animateParticles();
+      renderQuiz();
+    };
+  </script>
+</body>
+</html>
